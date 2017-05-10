@@ -7,9 +7,9 @@
 	  <link rel="stylesheet" type="text/css" href="styles/main.css">
 	</head>
 
-	<body>
+	<body ng-app="TodoApp">
 
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default" ng-controller="NavCtrl">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -22,20 +22,22 @@
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Link</a></li>
-		      </ul>
-
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Link</a></li>
+		    
+		      <ul class="nav navbar-nav navbar-right" ng-repeat="thingy in navItems">
+		        <li><a href="#">{{thingy.name}}</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
 
+		<div ng-controller="ItemCtrl">
+			{{dog}}
+		</div>
+
 
 	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="javascripts/main.js"></script>
 	</body>
 
