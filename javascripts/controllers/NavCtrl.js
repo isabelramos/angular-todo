@@ -1,4 +1,3 @@
-app.controller("NavCtrl", function($scope) {
-	$scope.cat = "Meow";
-	$scope.navItems = [{name: "Logout"}, {name: "All Items"}, {name: "New Items"}];
+app.controller("NavCtrl", function() {
+
 });
