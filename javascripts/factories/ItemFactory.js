@@ -6,10 +6,12 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
       $http.get(`${FIREBASE_CONFIG.databaseURL}/items.json`)
       .then((firebaseItems) => {
           let itemCollection = firebaseItems.data;
-          Object.keys(itemCollection).forEach((key) => {
-            itemCollection[key].id = key;
-            itemz.push(itemCollection[key]);
-          });
+          if (itemCollection !== null) {
+	          Object.keys(itemCollection).forEach((key) => {
+	            itemCollection[key].id = key;
+	            itemz.push(itemCollection[key]);
+	          });
+          }
           resolve(itemz);
       }).catch((error) => {
         reject(error);
