@@ -19,4 +19,12 @@ app.controller("ItemListCtrl", function($scope, ItemFactory) {
     	});
     };
 
+    $scope.inputChange = (item) => {
+    	ItemFactory.editItem(item).then(() => {
+    		//???
+    	}).catch((error) => {
+    		console.log("inputChange error", error);
+    	})
+    };
+
 });
