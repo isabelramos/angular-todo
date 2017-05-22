@@ -24,7 +24,7 @@ app.controller("ItemListCtrl", function($scope, ItemFactory) {
     		//???
     	}).catch((error) => {
     		console.log("inputChange error", error);
-    	})
+    	});
     };
 
 });

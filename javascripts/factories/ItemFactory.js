@@ -77,6 +77,6 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
 
 
 
-  return {getItemList:getItemList, getSingleItem:getSingleItem, postNewItem:postNewItem, deletz:deletz, editItem,editItem};
+  return {getItemList:getItemList, getSingleItem:getSingleItem, postNewItem:postNewItem, deletz:deletz, editItem:editItem};
 
 });
