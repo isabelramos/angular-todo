@@ -1,9 +1,9 @@
 app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
 
-  let getItemList = () => {
+  let getItemList = (userId) => {
     let itemz = [];
     return $q ((resolve, reject) => {
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/items.json`)
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/items.json?orderBy="uid"&equalTo="${userId}"`)
       .then((firebaseItems) => {
           let itemCollection = firebaseItems.data;
           if (itemCollection !== null) {
@@ -54,12 +54,14 @@ app.factory("ItemFactory", function($http, $q, FIREBASE_CONFIG) {
   };
 
   let editItem = (item) => {
+    console.log(item);
   	return $q ((resolve, reject) => {
   		$http.put(`${FIREBASE_CONFIG.databaseURL}/items/${item.id}.json`, 
   			JSON.stringify({
 	  			assignedTo: item.assignedTo,
 	  			isCompleted: item.isCompleted,
-	  			task: item.task
+	  			task: item.task,
+          uid: item.uid
   		})
     	).then((results) => {
         	resolve(results);
